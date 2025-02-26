@@ -1,0 +1,38 @@
+create table sales(sale_id INT PRIMARY KEY,product_id INT,quantity_sold INT,sale_date DATE,total_price DECIMAL(10,2));
+insert into sales (sale_id, product_id, quantity_sold, sale_date, total_price)
+values 
+(1, 101, 5, '2025-01-01', 50),
+(2, 102, 3, '2025-01-02', 20),
+(3, 103, 4, '2025-01-03', 60),
+(4, 104, 6, '2025-01-04', 90),
+(5, 105, 8, '2025-01-05', 60),
+(6, 106, 4, '2025-01-06', 900),
+(7, 107, 8, '2025-01-07', 200),
+(8, 108, 6, '2025-01-08',100),
+(9, 109, 9, '2025-01-09', 40),
+(10, 110, 1, '2025-01-10', 300),
+
+create table products(p_id int primary key,p_name varchar(50),category varchar(25),unit_price int);
+insert into products (p_id, p_name, category, unit_price)
+values 
+(101, 'Laptop', 'Electronics', 100),
+(102, 'Smartphone', 'Electronics', 700),
+(103, 'Tablet', 'Electronics', 400),
+(104, 'Headphones', 'Electronics', 100),
+(105, 'Smartwatch', 'Electronics', 250),
+(106, 'Keyboard', 'Accessories', 50),
+(107, 'Mouse', 'Accessories', 25),
+(108, 'Monitor', 'Electronics', 200),
+(109, 'Charger', 'Accessories', 30),
+(110, 'USB Cable', 'Accessories', 10),
+
+
+Ans 1 :: select * from sales;
+Ans 2 :: select p_name,unit_price from products;
+Ans 3 ::select quantity,total_price from sales where total_price > 100;
+Ans 4 :: select * from products where category = 'Electronics';
+Ans 5 :: select sum(total_price) as total_revenue from sales;
+Ans 6 :: select sum(quantity) as total_quantity_sold from sales;
+Ans 7 :: select sale_date, COUNT(s_id) as sales_count from sales group by sale_date;
+Ans 8:: select p_name,unit_price from products order by unit_price desc;  
+
